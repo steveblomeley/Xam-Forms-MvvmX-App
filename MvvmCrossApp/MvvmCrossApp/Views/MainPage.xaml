@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+    xmlns:viewModels="clr-namespace:MvvmCrossApp.Core.ViewModels;assembly=MvvmCrossApp.Core"
+    x:TypeArguments="viewModels:MainViewModel"
+    x:Class="MvvmCrossApp.Views.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Label 
+            BackgroundColor="Aqua"
+            Text="{Binding WelcomeText}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <ListView
+            ItemsSource="{Binding Contacts}"
+            ItemSelected="ContactSelected"
+            Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Id}"></Label>
+                            <Label Text="{Binding Name}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+        
+    </Grid>
+</views:MvxContentPage>
