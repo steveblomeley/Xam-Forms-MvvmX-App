@@ -2,20 +2,22 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace ItemSelectedBehavior
+// ReSharper disable once CheckNamespace
+namespace MvvmCrossApp
 {
-	public class SelectedItemEventArgsToSelectedItemConverter : IValueConverter
-	{
-		public object Convert (object value, Type targetType, object parameter, CultureInfo culture)
-		{
-			var eventArgs = value as SelectedItemChangedEventArgs;
-			return eventArgs.SelectedItem;
-		}
+    public class SelectedItemEventArgsToSelectedItemConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return (value is SelectedItemChangedEventArgs eventArgs)
+                ? eventArgs.SelectedItem
+                : throw new ArgumentException(
+                    $"{nameof(SelectedItemEventArgsToSelectedItemConverter)}.{nameof(Convert)} - expected {nameof(value)} argument to be of type {nameof(SelectedItemChangedEventArgs)}.");
+        }
 
-		public object ConvertBack (object value, Type targetType, object parameter, CultureInfo culture)
-		{
-			throw new NotImplementedException ();
-		}
-	}
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
-

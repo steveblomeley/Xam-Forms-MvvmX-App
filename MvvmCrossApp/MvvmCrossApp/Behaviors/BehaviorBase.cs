@@ -1,7 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace MvvmCrossApp.Behaviors
+// ReSharper disable once CheckNamespace
+namespace MvvmCrossApp
 {
 	public class BehaviorBase<T> : Behavior<T> where T : BindableObject
 	{
@@ -38,4 +39,3 @@ namespace MvvmCrossApp.Behaviors
 		}
 	}
 }
-

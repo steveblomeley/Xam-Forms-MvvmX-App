@@ -3,9 +3,14 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
-    xmlns:viewModels="clr-namespace:MvvmCrossApp.Core.ViewModels;assembly=MvvmCrossApp.Core"
-    x:TypeArguments="viewModels:MainViewModel"
+    xmlns:local="clr-namespace:MvvmCrossApp"
     x:Class="MvvmCrossApp.Views.MainPage">
+
+    <ContentPage.Resources>
+		<ResourceDictionary>
+			<local:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -21,8 +26,13 @@
         
         <ListView
             ItemsSource="{Binding Contacts}"
-            ItemSelected="ContactSelected"
             Grid.Row="1">
+            <ListView.Behaviors>
+                <local:EventToCommandBehavior 
+                    EventName="ItemSelected" 
+                    Command="{Binding ShowContactDetailsCommand}"
+                    Converter="{StaticResource SelectedItemConverter}" />
+            </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

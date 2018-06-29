@@ -3,7 +3,8 @@ using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace MvvmCrossApp.Behaviors
+// ReSharper disable once CheckNamespace
+namespace MvvmCrossApp
 {
     public class EventToCommandBehavior : BehaviorBase<View>
     {
