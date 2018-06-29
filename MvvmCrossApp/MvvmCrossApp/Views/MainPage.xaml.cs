@@ -1,18 +1,12 @@
-﻿using MvvmCrossApp.Core.Models;
-using Xamarin.Forms;
+﻿using MvvmCross.Forms.Views;
 
 namespace MvvmCrossApp.Views
 {
-	public partial class MainPage
+	public partial class MainPage : MvxContentPage
 	{
 		public MainPage()
 		{
 			InitializeComponent();
 		}
-
-	    private void ContactSelected(object sender, SelectedItemChangedEventArgs e)
-	    {
-	        ViewModel.ShowContactDetails(e.SelectedItem as Contact);
-	    }
 	}
 }
