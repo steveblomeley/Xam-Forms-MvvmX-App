@@ -3,6 +3,12 @@ using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
+// This is based on David Britch's solution: https://github.com/davidbritch/xamarin-forms/tree/master/ItemSelectedBehavior
+// Related blog posts at: 
+// - https://blog.xamarin.com/turn-events-into-commands-with-behaviors/
+// - https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/behaviors/reusable/event-to-command-behavior
+// With a little tidying of code, and comments added to aid my understanding of what's going on
+
 // ReSharper disable once CheckNamespace
 namespace MvvmCrossApp
 {
