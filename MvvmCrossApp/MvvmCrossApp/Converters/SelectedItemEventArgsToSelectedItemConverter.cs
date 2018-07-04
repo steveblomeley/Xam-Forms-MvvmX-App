@@ -9,8 +9,8 @@ namespace MvvmCrossApp
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (value is SelectedItemChangedEventArgs eventArgs)
-                ? eventArgs.SelectedItem
+            return (value is ItemTappedEventArgs eventArgs)
+                ? eventArgs.Item
                 : throw new ArgumentException(
                     $"{nameof(SelectedItemEventArgsToSelectedItemConverter)}.{nameof(Convert)} - expected {nameof(value)} argument to be of type {nameof(SelectedItemChangedEventArgs)}.");
         }

@@ -12,11 +12,8 @@
 		</ResourceDictionary>
 	</ContentPage.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+    <StackLayout
+        Orientation="Vertical" >
         
         <Label 
             BackgroundColor="Aqua"
@@ -24,12 +21,17 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         
+        <Button
+            Text="Use Xamarin Bindings"
+            Command="{Binding TestCommand}" />
+        <Label
+            Text="{Binding ClickedCount}" />
+
         <ListView
-            ItemsSource="{Binding Contacts}"
-            Grid.Row="1">
+            ItemsSource="{Binding Contacts}">
             <ListView.Behaviors>
                 <local:EventToCommandBehavior 
-                    EventName="ItemSelected" 
+                    EventName="ItemTapped" 
                     Command="{Binding ShowContactDetailsCommand}"
                     Converter="{StaticResource SelectedItemConverter}" />
             </ListView.Behaviors>
@@ -46,5 +48,5 @@
             
         </ListView>
         
-    </Grid>
+    </StackLayout>
 </views:MvxContentPage>
