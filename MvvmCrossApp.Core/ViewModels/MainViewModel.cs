@@ -1,18 +1,17 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using MvvmCrossApp.Core.Models;
 using MvvmCrossApp.Core.Services;
-using Xamarin.Forms;
 
 namespace MvvmCrossApp.Core.ViewModels
 {
     public class MainViewModel : MvxViewModel
     {
         public ObservableCollection<Contact> Contacts { get; } = new ObservableCollection<Contact>();
-        public ICommand ShowContactDetailsCommand { get; }
+        public IMvxCommand ShowContactDetailsCommand { get; }
 
         private readonly IMvxNavigationService _navigationService;
         private readonly IContactService _contactService;
@@ -21,7 +20,7 @@ namespace MvvmCrossApp.Core.ViewModels
         {
             _contactService = contactService;
             _navigationService = navigationService;
-            ShowContactDetailsCommand = new Command<Contact>(async contact => await ShowContactDetails(contact));
+            ShowContactDetailsCommand = new MvxCommand<Contact>(async contact => await ShowContactDetails(contact));
         }
 
         public string WelcomeText => "Xamarin Forms feat MvvmX";

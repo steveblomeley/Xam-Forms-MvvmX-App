@@ -8,10 +8,4 @@
     <PackageReference Include="MvvmCross" Version="6.1.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\..\..\..\.nuget\packages\xamarin.forms\3.1.0.583944\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
