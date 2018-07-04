@@ -8,7 +8,7 @@
 
     <ContentPage.Resources>
 		<ResourceDictionary>
-			<local:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+            <local:ItemTappedEventArgsToItemConverter x:Key="TappedItemConverter" />
 		</ResourceDictionary>
 	</ContentPage.Resources>
 
@@ -33,7 +33,7 @@
                 <local:EventToCommandBehavior 
                     EventName="ItemTapped" 
                     Command="{Binding ShowContactDetailsCommand}"
-                    Converter="{StaticResource SelectedItemConverter}" />
+                    Converter="{StaticResource TappedItemConverter}" />
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>

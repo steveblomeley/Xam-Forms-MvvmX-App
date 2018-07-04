@@ -9,7 +9,7 @@ namespace MvvmCrossApp.Core.Services
         public IEnumerable<Contact> GetContacts()
         {
             return Enumerable
-                .Range(1, 10)
+                .Range(1, 20)
                 .Select(i => new Contact {Id = i, Name = $"Contact no. {i}"});
         }
     }
